@@ -219,3 +219,7 @@ __marimo__/
 
 # IDE
 .idea
+
+# Pelican
+output/
+cache/

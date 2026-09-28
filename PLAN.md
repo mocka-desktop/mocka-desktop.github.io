@@ -42,7 +42,6 @@ Create:
 .
 ├── .github/workflows/pages.yml
 ├── .gitignore
-├── CLAUDE.md
 ├── PLAN.md
 ├── README.md
 ├── SPEC.md

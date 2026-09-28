@@ -1,0 +1,15 @@
+{# Skeleton only. Phase 2 builds the real base template. #}
+<!doctype html>
+<html lang="{{ DEFAULT_LANG }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+  </head>
+  <body>
+    <main id="main">
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>
