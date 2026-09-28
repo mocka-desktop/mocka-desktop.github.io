@@ -7,7 +7,11 @@ DEFAULT_LANG = "en"
 
 PATH = "content"
 THEME = "themes/mocka"
-STATIC_PATHS = ["images"]
+STATIC_PATHS = ["images", "extra/favicon.ico"]
+
+# Browsers request /favicon.ico from the site root on their own, whatever
+# the <link rel="icon"> tags say, so serve one there.
+EXTRA_PATH_METADATA = {"extra/favicon.ico": {"path": "favicon.ico"}}
 ARTICLE_PATHS = ["news"]
 PAGE_PATHS = ["pages"]
 
@@ -46,8 +50,9 @@ AUTHOR_FEED_RSS = None
 DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 RELATIVE_URLS = True
 
-# .gitkeep only exists so git tracks the empty directories of the scaffold.
-IGNORE_FILES = [".#*", ".gitkeep"]
+# Pelican's default, plus .gitkeep. Those only exist so git tracks the
+# empty directories of the scaffold, and they should not reach output/.
+IGNORE_FILES = ["**/.*", ".gitkeep"]
 
 # Site data. Templates render these, so nothing below is hardcoded in HTML.
 

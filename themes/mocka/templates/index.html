@@ -1,14 +1,25 @@
 {# Skeleton only. Phase 5 builds the real news listing. #}
 {% extends "base.html" %}
+{% set active_nav = "news/" %}
+{% set current_path = "news/" %}
 
 {% block title %}News | {{ SITENAME }}{% endblock %}
+{% block description %}Release announcements and project updates from the Mocka desktop project.{% endblock %}
 
 {% block content %}
-  <h1>News</h1>
-  {% for article in articles_page.object_list %}
-    <article>
-      <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-      <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-    </article>
-  {% endfor %}
+  <div class="section">
+    <div class="wrap">
+      <h1>News</h1>
+      <p class="section__lead">Release announcements and project updates.</p>
+
+      {% for article in articles_page.object_list %}
+        <article>
+          <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+          <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+        </article>
+      {% else %}
+        <p>No articles yet.</p>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}

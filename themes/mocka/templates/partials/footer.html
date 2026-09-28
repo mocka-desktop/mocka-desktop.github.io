@@ -1,0 +1,30 @@
+{# Site footer. Link groups come from FOOTER_LINKS in pelicanconf.py.
+   A url starting with http is external, everything else is site relative. #}
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__groups">
+      {% for group, links in FOOTER_LINKS.items() %}
+        {% set group_id = "footer-group-" ~ loop.index %}
+        <nav class="footer-group" aria-labelledby="{{ group_id }}">
+          <h2 class="footer-group__title" id="{{ group_id }}">{{ group }}</h2>
+          <ul class="footer-group__list">
+            {% for label, url in links %}
+              <li>
+                {% if url.startswith("http") %}
+                  <a href="{{ url }}" rel="noopener">{{ label }}</a>
+                {% else %}
+                  <a href="{{ SITEURL }}/{{ url }}">{{ label }}</a>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endfor %}
+    </div>
+
+    <div class="site-footer__meta">
+      <p>Mocka is developed as part of GhostBSD.</p>
+      <p>Released under the BSD-3-Clause license.</p>
+    </div>
+  </div>
+</footer>

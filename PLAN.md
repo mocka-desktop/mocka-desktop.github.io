@@ -19,7 +19,10 @@ These defaults apply unless the maintainer says otherwise:
 - No JavaScript. The site must work fully with JS disabled.
 - No third-party requests: no web fonts from CDNs, no analytics, no external
   images. Everything is served from the repository.
-- Logo: a text wordmark ("Mocka") styled in CSS until a real logo exists.
+- Logo: the Mocka cup artwork (`themes/mocka/static/img/mocka.svg`) beside
+  the "Mocka" wordmark, with matching `favicon.svg`, `favicon.ico` and a
+  monochrome `mocka-symbolic.svg`. The accent colors in `main.css` are taken
+  from the browns in that artwork.
 - Screenshots: the maintainer provides them in
   `content/images/screenshots/`. Until then, use clearly marked placeholder
   images (see Phase 7).

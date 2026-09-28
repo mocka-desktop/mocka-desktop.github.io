@@ -1,15 +1,59 @@
-{# Skeleton only. Phase 2 builds the real base template. #}
 <!doctype html>
 <html lang="{{ DEFAULT_LANG }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="description"
+          content="{% block description %}{{ SITESUBTITLE }}{% endblock %}">
+
+    {# Current path, used for og:url. Empty on the home page. Direct
+       templates have no page or article, so they set current_path. #}
+    {% if current_path is defined %}
+      {% set current_url = current_path %}
+    {% elif article is defined %}
+      {% set current_url = article.url %}
+    {% elif page is defined %}
+      {% set current_url = page.url %}
+    {% else %}
+      {% set current_url = "" %}
+    {% endif %}
+
+    {% block og %}
+      <meta property="og:site_name" content="{{ SITENAME }}">
+      <meta property="og:type" content="{% if article is defined %}article{% else %}website{% endif %}">
+      <meta property="og:title" content="{{ self.title() }}">
+      <meta property="og:description" content="{{ self.description() }}">
+      <meta property="og:url" content="{{ SITEURL }}/{{ current_url }}">
+      <meta name="twitter:card" content="{% if OG_IMAGE is defined %}summary_large_image{% else %}summary{% endif %}">
+      {# Phase 8 sets OG_IMAGE once the social card image exists. #}
+      {% if OG_IMAGE is defined %}
+        <meta property="og:image" content="{{ SITEURL }}/{{ OG_IMAGE }}">
+        <meta name="twitter:image" content="{{ SITEURL }}/{{ OG_IMAGE }}">
+      {% endif %}
+    {% endblock %}
+
+    <link rel="icon" href="{{ SITEURL }}/theme/img/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="{{ SITEURL }}/favicon.ico" sizes="32x32">
     <link rel="stylesheet" href="{{ SITEURL }}/theme/css/main.css">
+
+    {% if FEED_ALL_ATOM %}
+      <link rel="alternate" type="application/atom+xml"
+            href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}"
+            title="{{ SITENAME }} news">
+    {% endif %}
   </head>
+
   <body>
-    <main id="main">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    {% include "partials/header.html" %}
+
+    <main class="site-main" id="main" tabindex="-1">
       {% block content %}{% endblock %}
     </main>
+
+    {% include "partials/footer.html" %}
   </body>
 </html>
