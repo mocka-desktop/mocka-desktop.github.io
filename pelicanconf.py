@@ -8,12 +8,12 @@ DEFAULT_LANG = "en"
 PATH = "content"
 THEME = "themes/mocka"
 STATIC_PATHS = ["images", "extra/favicon.ico"]
+ARTICLE_PATHS = ["news"]
+PAGE_PATHS = ["pages"]
 
 # Browsers request /favicon.ico from the site root on their own, whatever
 # the <link rel="icon"> tags say, so serve one there.
 EXTRA_PATH_METADATA = {"extra/favicon.ico": {"path": "favicon.ico"}}
-ARTICLE_PATHS = ["news"]
-PAGE_PATHS = ["pages"]
 
 # URLs
 ARTICLE_URL = "news/{slug}/"
@@ -105,6 +105,20 @@ COMPONENTS = [
     },
 ]
 
+HERO = {
+    "headline": "A desktop built from scratch for GhostBSD.",
+    "subline": (
+        "Mocka replaces MATE one component at a time, written from scratch "
+        "and compatible with MATE along the way."
+    ),
+    "image": "images/screenshots/hero-desktop.webp",
+    "alt": "A GhostBSD desktop with Mocka Dock on the panel",
+    "width": 1600,
+    "height": 900,
+}
+
+# Images are given as the WebP path. Templates serve that through a
+# <picture> and fall back to the PNG of the same name.
 FEATURES = [
     {
         "component": "Mocka Dock",
@@ -116,7 +130,27 @@ FEATURES = [
         ),
         "image": "images/screenshots/dock-overview.webp",
         "alt": "Mocka Dock on a GhostBSD panel with pinned and running apps",
+        "width": 1200,
+        "height": 400,
     },
+]
+
+# (title, text, anchor). The anchors match the sections of get-involved.md.
+GET_INVOLVED = [
+    ("Code",
+     "Every component is a repository in the GitHub org. Open a pull "
+     "request, or raise larger changes in Discussions first.",
+     "code"),
+    ("Testing",
+     "Run the alpha on GhostBSD and report what breaks, with the steps "
+     "that led there.",
+     "testing"),
+    ("Design",
+     "Share mockups, icons and interface ideas in Discussions.",
+     "design"),
+    ("Translation",
+     "Not set up yet. Watch Discussions for the announcement.",
+     "translation"),
 ]
 
 WHY_MOCKA = [

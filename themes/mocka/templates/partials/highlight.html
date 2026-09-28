@@ -1,0 +1,19 @@
+{# Renders nothing when HIGHLIGHT is missing or empty. #}
+{% if HIGHLIGHT is defined and HIGHLIGHT %}
+  <section class="section section--flush">
+    <div class="wrap">
+      <a class="highlight" href="{{ SITEURL }}/{{ HIGHLIGHT.url }}">
+        {% if HIGHLIGHT.label %}
+          <span class="highlight__label">{{ HIGHLIGHT.label }}</span>
+        {% endif %}
+        <span class="highlight__body">
+          <span class="highlight__title">{{ HIGHLIGHT.title }}</span>
+          {% if HIGHLIGHT.text %}
+            <span class="highlight__text">{{ HIGHLIGHT.text }}</span>
+          {% endif %}
+        </span>
+        <span class="highlight__arrow" aria-hidden="true">&rarr;</span>
+      </a>
+    </div>
+  </section>
+{% endif %}

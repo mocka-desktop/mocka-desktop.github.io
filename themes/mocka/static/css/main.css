@@ -547,3 +547,368 @@ td {
   border-radius: var(--radius-lg);
   background: var(--color-raised);
 }
+
+/* -------------------------------------------------------- Device frames */
+
+/* Both frames are drawn in CSS. No frame image is ever requested. */
+
+.device-laptop__screen {
+  padding: var(--space-2);
+  border-radius: 12px 12px 3px 3px;
+  background: #2b241f;
+  box-shadow: var(--shadow-card);
+}
+
+.device-laptop__screen img {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* The lid sits on a base slightly wider than the screen. */
+.device-laptop__base {
+  height: 10px;
+  margin-inline: -4%;
+  border-radius: 0 0 10px 10px;
+  background: linear-gradient(var(--color-border-strong), var(--color-border));
+}
+
+.device-window {
+  overflow: hidden;
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--color-raised);
+  box-shadow: var(--shadow-card);
+}
+
+.device-window__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  height: 2rem;
+  padding-inline: var(--space-3);
+  border-bottom: var(--border-hairline);
+  background: var(--color-sunken);
+}
+
+.device-window__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.device-window img {
+  display: block;
+  width: 100%;
+}
+
+/* ----------------------------------------------------------------- Hero */
+
+.hero {
+  padding-block: var(--space-7) var(--space-6);
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-6);
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding-block: var(--space-8) var(--space-7);
+  }
+
+  .hero__inner {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+.hero__headline {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-4xl);
+  letter-spacing: -0.025em;
+}
+
+.hero__subline {
+  max-width: 34rem;
+  margin-bottom: var(--space-5);
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+/* ------------------------------------------------------------ Highlight */
+
+/* A section that butts against the one before it. */
+.section--flush {
+  padding-top: 0;
+}
+
+.highlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.highlight:hover {
+  border-color: var(--color-accent);
+  background: var(--color-sunken);
+  color: var(--color-text);
+}
+
+.highlight__label {
+  padding: 0.15em 0.7em;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: var(--text-xs);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.highlight__body {
+  flex: 1;
+  min-width: 8rem;
+}
+
+.highlight__title {
+  display: block;
+  font-weight: 650;
+}
+
+.highlight__text {
+  display: block;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.highlight__arrow {
+  color: var(--color-accent);
+  font-size: var(--text-lg);
+}
+
+/* ------------------------------------------------------- Feature story */
+
+.feature {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.feature + .feature {
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+  .feature {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-8);
+  }
+
+  /* Even numbered stories put the screenshot on the left. */
+  .feature--reverse .feature__visual {
+    order: -1;
+  }
+}
+
+.feature__eyebrow {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+  font-size: var(--text-sm);
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.feature__title {
+  margin-bottom: var(--space-3);
+}
+
+.feature__text p:last-child {
+  margin-bottom: 0;
+}
+
+/* ----------------------------------------------------------- Why Mocka */
+
+.why-grid {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 640px) {
+  .why-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-6);
+  }
+}
+
+.why__title {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.why__text {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------- Get involved */
+
+.involve-grid {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .involve-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .involve-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.involve {
+  padding-top: var(--space-4);
+  border-top: 2px solid var(--color-border-strong);
+}
+
+.involve__title {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.involve__title a {
+  text-decoration: none;
+}
+
+.involve__title a:hover {
+  text-decoration: underline;
+}
+
+.involve__text {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+/* ------------------------------------------------------------ Get Mocka */
+
+.get-mocka {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 1024px) {
+  .get-mocka {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-8);
+  }
+}
+
+.get-mocka__text p {
+  max-width: 38rem;
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+}
+
+.get-mocka__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
+.get-mocka__notes {
+  font-size: var(--text-sm);
+  font-weight: 550;
+}
+
+/* ----------------------------------------------------------------- News */
+
+.section__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.section__more {
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.news-list {
+  display: grid;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 640px) {
+  .news-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* The full listing stays one column so summaries have room. */
+  .news-list--full {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.news-item {
+  padding-top: var(--space-4);
+  border-top: var(--border-hairline);
+}
+
+.news-item__date {
+  margin-bottom: var(--space-1);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.news-item__title {
+  margin-bottom: var(--space-2);
+  font-size: var(--text-lg);
+}
+
+.news-item__title a {
+  text-decoration: none;
+}
+
+.news-item__title a:hover {
+  text-decoration: underline;
+}
+
+.news-item__summary {
+  color: var(--color-text-muted);
+}
+
+.news-item__summary p:last-child {
+  margin-bottom: 0;
+}
+
+.news-list__empty {
+  color: var(--color-text-muted);
+}

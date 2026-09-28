@@ -1,0 +1,23 @@
+{# Feature stories, one per shipping component. Renders nothing when
+   FEATURES is empty. Image and text alternate sides on wide screens. #}
+{% import "partials/macros.html" as ui with context %}
+{% if FEATURES is defined and FEATURES %}
+  <section class="section">
+    <div class="wrap">
+      {% for feature in FEATURES %}
+        <article class="feature{% if loop.index is even %} feature--reverse{% endif %}">
+          <div class="feature__text">
+            {% if feature.component %}
+              <p class="feature__eyebrow">{{ feature.component }}</p>
+            {% endif %}
+            <h2 class="feature__title">{{ feature.title }}</h2>
+            <p>{{ feature.text }}</p>
+          </div>
+          <div class="feature__visual">
+            {{ ui.window(feature.image, feature.alt, feature.width, feature.height) }}
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}

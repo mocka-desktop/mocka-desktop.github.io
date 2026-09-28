@@ -1,0 +1,36 @@
+{# Shared template helpers. Import with context so SITEURL resolves:
+   {% import "partials/macros.html" as ui with context %} #}
+
+{# A screenshot served as WebP with a PNG fallback of the same name.
+   Pass eager=True for images above the fold, such as the hero. #}
+{% macro screenshot(image, alt, width, height, eager=False) %}
+  {% set fallback = image.rsplit(".", 1)[0] ~ ".png" %}
+  <picture>
+    <source srcset="{{ SITEURL }}/{{ image }}" type="image/webp">
+    <img src="{{ SITEURL }}/{{ fallback }}" alt="{{ alt }}"
+         width="{{ width }}" height="{{ height }}"
+         {% if eager %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
+  </picture>
+{% endmacro %}
+
+{# A screenshot inside a CSS drawn laptop lid. No frame image is loaded. #}
+{% macro laptop(image, alt, width, height, eager=False) %}
+  <div class="device-laptop">
+    <div class="device-laptop__screen">
+      {{ screenshot(image, alt, width, height, eager) }}
+    </div>
+    <div class="device-laptop__base" aria-hidden="true"></div>
+  </div>
+{% endmacro %}
+
+{# A screenshot inside a CSS drawn application window. #}
+{% macro window(image, alt, width, height) %}
+  <div class="device-window">
+    <div class="device-window__bar" aria-hidden="true">
+      <span class="device-window__dot"></span>
+      <span class="device-window__dot"></span>
+      <span class="device-window__dot"></span>
+    </div>
+    {{ screenshot(image, alt, width, height) }}
+  </div>
+{% endmacro %}

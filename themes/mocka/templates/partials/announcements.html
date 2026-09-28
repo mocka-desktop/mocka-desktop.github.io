@@ -1,0 +1,12 @@
+{# The three most recent articles on the home page. #}
+{% set news_items = (articles or [])[:3] %}
+{% set news_heading = "h3" %}
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Announcements</h2>
+      <a class="section__more" href="{{ SITEURL }}/news/">All news</a>
+    </div>
+    {% include "partials/news_list.html" %}
+  </div>
+</section>

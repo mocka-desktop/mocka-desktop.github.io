@@ -1,0 +1,27 @@
+{# Renders a list of articles. Callers set, before including:
+     news_items    the articles to show
+     news_heading  heading level for titles (default h3)
+     news_full     True to show summaries and cover images #}
+{% set items = news_items if news_items is defined else [] %}
+{% set heading = news_heading if news_heading is defined else "h3" %}
+{% if items %}
+  <ul class="news-list{% if news_full %} news-list--full{% endif %}">
+    {% for article in items %}
+      <li class="news-item">
+        <article>
+          <p class="news-item__date">
+            <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
+          </p>
+          <{{ heading }} class="news-item__title">
+            <a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a>
+          </{{ heading }}>
+          {% if article.summary %}
+            <div class="news-item__summary">{{ article.summary|safe }}</div>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p class="news-list__empty">No articles yet.</p>
+{% endif %}

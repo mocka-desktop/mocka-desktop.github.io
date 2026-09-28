@@ -1,0 +1,21 @@
+{# Each block links to the matching anchor on the Get Involved page. #}
+{% if GET_INVOLVED is defined and GET_INVOLVED %}
+  <section class="section">
+    <div class="wrap">
+      <h2>Get involved</h2>
+      <p class="section__lead">
+        Mocka is developed in the open. Pick the part that suits you.
+      </p>
+      <ul class="involve-grid">
+        {% for title, text, anchor in GET_INVOLVED %}
+          <li class="involve">
+            <h3 class="involve__title">
+              <a href="{{ SITEURL }}/get-involved/#{{ anchor }}">{{ title }}</a>
+            </h3>
+            <p class="involve__text">{{ text }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endif %}

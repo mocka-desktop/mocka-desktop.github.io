@@ -1,0 +1,15 @@
+{% if WHY_MOCKA is defined and WHY_MOCKA %}
+  <section class="section section--tint">
+    <div class="wrap">
+      <h2>Why Mocka</h2>
+      <div class="why-grid">
+        {% for title, text in WHY_MOCKA %}
+          <div class="why">
+            <h3 class="why__title">{{ title }}</h3>
+            <p class="why__text">{{ text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endif %}

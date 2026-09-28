@@ -76,9 +76,22 @@ the Atom feed, and in the announcements section of the home page. Point
 
 ## Placeholder images
 
-None yet. The screenshots listed in `PLAN.md` phase 7 are still to come. Any
-placeholder standing in for a real screenshot gets recorded here, so they
-are easy to find and replace.
+These are generated stand-ins, not real screenshots. Replace them with the
+real thing at the same path and the same pixel size, in both formats, and
+no template or config changes are needed.
+
+| File | Size | Used in |
+|------|------|---------|
+| `content/images/screenshots/hero-desktop.{webp,png}` | 1600x900 | Hero, in the laptop frame |
+| `content/images/screenshots/dock-overview.{webp,png}` | 1200x400 | Mocka Dock feature story, in the window frame |
+
+Still to come, listed in `PLAN.md` phase 7: `dock-app-menu` (optional
+second feature story) and `social-card` (1200x630, for the Open Graph and
+Twitter tags added in phase 8).
+
+Templates size images from the `width` and `height` in `pelicanconf.py`
+(`HERO` and `FEATURES`), so update those if a replacement has different
+dimensions. Keeping the aspect ratio avoids layout shift.
 
 ## License
 

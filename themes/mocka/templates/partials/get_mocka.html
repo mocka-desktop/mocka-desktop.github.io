@@ -1,0 +1,22 @@
+{% set dock = COMPONENTS | selectattr("slug", "equalto", "mocka-dock") | first %}
+<section class="section section--tint">
+  <div class="wrap get-mocka">
+    <div class="get-mocka__text">
+      <h2>Get Mocka</h2>
+      <p>
+        Mocka is developed as part of GhostBSD and ships with it. Install
+        GhostBSD and the components arrive with the system.
+      </p>
+    </div>
+    <div class="get-mocka__actions">
+      <a class="button button--primary" href="{{ GHOSTBSD_DOWNLOAD_URL }}" rel="noopener">
+        Download GhostBSD
+      </a>
+      {% if dock and dock.release %}
+        <a class="get-mocka__notes" href="{{ dock.release }}" rel="noopener">
+          Read the latest release notes
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</section>

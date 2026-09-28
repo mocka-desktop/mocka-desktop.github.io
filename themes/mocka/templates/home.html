@@ -1,0 +1,17 @@
+{# The home page. Every section is a partial driven by pelicanconf.py data,
+   and each one renders nothing when its data is missing. #}
+{% extends "base.html" %}
+{% set current_path = "" %}
+
+{% block title %}{{ SITENAME }}, a desktop built from scratch for GhostBSD{% endblock %}
+{% block description %}{{ HERO.subline }}{% endblock %}
+
+{% block content %}
+  {% include "partials/hero.html" %}
+  {% include "partials/highlight.html" %}
+  {% include "partials/feature.html" %}
+  {% include "partials/why.html" %}
+  {% include "partials/get_involved.html" %}
+  {% include "partials/get_mocka.html" %}
+  {% include "partials/announcements.html" %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% import "partials/macros.html" as ui with context %}
+{% set dock = COMPONENTS | selectattr("slug", "equalto", "mocka-dock") | first %}
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__text">
+      <h1 class="hero__headline">{{ HERO.headline }}</h1>
+      <p class="hero__subline">{{ HERO.subline }}</p>
+      <div class="button-group">
+        {% if dock and dock.release %}
+          <a class="button button--primary" href="{{ dock.release }}" rel="noopener">Try Mocka Dock</a>
+        {% endif %}
+        <a class="button button--secondary" href="{{ GITHUB_ORG_URL }}" rel="noopener">Follow development</a>
+      </div>
+    </div>
+
+    <div class="hero__visual">
+      {{ ui.laptop(HERO.image, HERO.alt, HERO.width, HERO.height, eager=True) }}
+    </div>
+  </div>
+</section>
