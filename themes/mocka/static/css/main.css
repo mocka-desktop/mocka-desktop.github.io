@@ -74,10 +74,17 @@
 
   --width-max: 68rem;
   --width-prose: 36rem;
+  /* Body copy on reading pages. Larger than interface text so that a
+     comfortable measure fills a column that does not look thin. */
+  --text-prose: 1.1875rem;
   --gutter: var(--space-4);
 
   --border-hairline: 1px solid var(--color-border);
   --transition: 120ms ease;
+
+  /* Reading pages: the measure is capped in characters, and the type is
+     larger so that measure fills a comfortable column. */
+  --width-reading: 42rem;
 }
 
 @media (min-width: 640px) {
@@ -276,8 +283,12 @@ td {
   padding-inline: var(--gutter);
 }
 
-.wrap--prose {
-  max-width: calc(var(--width-prose) + var(--gutter) * 2);
+/* Reading pages. The children are capped at a comfortable measure and
+   centred in the page, so the column sits on its own rather than running
+   the full width of the other sections. */
+.wrap--reading > * {
+  max-width: var(--width-reading);
+  margin-inline: auto;
 }
 
 .site-main {
@@ -944,6 +955,31 @@ td {
   font-weight: 600;
 }
 
+/* ----------------------------------------------------------------- Page */
+
+.page__title {
+  margin-bottom: var(--space-6);
+}
+
+.page__body {
+  font-size: var(--text-prose);
+}
+
+.page__body h2 {
+  margin-top: var(--space-6);
+  font-size: var(--text-xl);
+}
+
+.page__body h3 {
+  margin-top: var(--space-5);
+  font-size: var(--text-lg);
+}
+
+/* Offsets the jump target so a linked heading is not flush to the top. */
+.page__body :target {
+  scroll-margin-top: var(--space-5);
+}
+
 /* -------------------------------------------------------------- Article */
 
 .article__back {
@@ -975,6 +1011,10 @@ td {
 .article__cover img {
   display: block;
   width: 100%;
+}
+
+.article__body {
+  font-size: var(--text-prose);
 }
 
 .article__body h2 {

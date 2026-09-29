@@ -1,0 +1,18 @@
+{# A static content page: title and body in a readable column. #}
+{% extends "base.html" %}
+
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+{% block description %}
+  {%- if page.summary %}{{ page.summary|striptags|trim }}{% else %}{{ SITESUBTITLE }}{% endif -%}
+{% endblock %}
+
+{% block content %}
+  <article class="section">
+    <div class="wrap wrap--reading">
+      <h1 class="page__title">{{ page.title }}</h1>
+      <div class="page__body">
+        {{ page.content }}
+      </div>
+    </div>
+  </article>
+{% endblock %}

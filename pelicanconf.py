@@ -58,6 +58,18 @@ AUTHOR_FEED_RSS = None
 DEFAULT_DATE_FORMAT = "%B %-d, %Y"
 RELATIVE_URLS = True
 
+# Pelican's defaults plus toc, which gives every heading a slugified id so
+# the home page can link to get-involved/#code and friends.
+MARKDOWN = {
+    "extension_configs": {
+        "markdown.extensions.codehilite": {"css_class": "highlight"},
+        "markdown.extensions.extra": {},
+        "markdown.extensions.meta": {},
+        "markdown.extensions.toc": {},
+    },
+    "output_format": "html5",
+}
+
 # Pelican's default, plus .gitkeep. Those only exist so git tracks the
 # empty directories of the scaffold, and they should not reach output/.
 IGNORE_FILES = ["**/.*", ".gitkeep"]
