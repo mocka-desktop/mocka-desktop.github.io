@@ -85,6 +85,20 @@ To publish a news article, add a Markdown file to `content/news/` with
 the Atom feed, and in the announcements section of the home page. Point
 `HIGHLIGHT` at it to feature it below the hero.
 
+An article can carry an optional cover image, shown on the article page and
+in the news listing. It needs all three fields, because the dimensions
+reserve the image's space before it loads:
+
+```
+Cover: images/news/example.webp
+Cover_width: 1200
+Cover_height: 630
+Cover_alt: What the image shows
+```
+
+Put the file in `content/images/news/`, in WebP with a PNG of the same name
+beside it, the way screenshots are handled.
+
 ## Conventions
 
 - No JavaScript. The site works fully with JS disabled.

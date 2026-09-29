@@ -2,6 +2,7 @@
      news_items    the articles to show
      news_heading  heading level for titles (default h3)
      news_full     True to show summaries and cover images #}
+{% import "partials/macros.html" as ui with context %}
 {% set items = news_items if news_items is defined else [] %}
 {% set heading = news_heading if news_heading is defined else "h3" %}
 {% if items %}
@@ -9,6 +10,11 @@
     {% for article in items %}
       <li class="news-item">
         <article>
+          {% if news_full and article.cover %}
+            <a class="news-item__cover" href="{{ SITEURL }}/{{ article.url }}" tabindex="-1" aria-hidden="true">
+              {{ ui.screenshot(article.cover, "", article.cover_width, article.cover_height) }}
+            </a>
+          {% endif %}
           <p class="news-item__date">
             <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
           </p>

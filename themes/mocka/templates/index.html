@@ -1,4 +1,4 @@
-{# Skeleton only. Phase 5 builds the real news listing. #}
+{# The news listing. Paginated, newest first. #}
 {% extends "base.html" %}
 {% set active_nav = "news/" %}
 {% set current_path = "news/" %}
@@ -7,19 +7,31 @@
 {% block description %}Release announcements and project updates from the Mocka desktop project.{% endblock %}
 
 {% block content %}
-  <div class="section">
+  <section class="section">
     <div class="wrap">
       <h1>News</h1>
       <p class="section__lead">Release announcements and project updates.</p>
 
-      {% for article in articles_page.object_list %}
-        <article>
-          <h2><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
-          <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time>
-        </article>
-      {% else %}
-        <p>No articles yet.</p>
-      {% endfor %}
+      {% set news_items = articles_page.object_list %}
+      {% set news_heading = "h2" %}
+      {% set news_full = True %}
+      {% include "partials/news_list.html" %}
+
+      {% if articles_paginator.num_pages > 1 %}
+        <nav class="pagination" aria-label="News pages">
+          {% if articles_page.has_previous() %}
+            <a class="pagination__link" rel="prev"
+               href="{{ SITEURL }}/{{ articles_previous_page.url }}">Newer</a>
+          {% endif %}
+          <span class="pagination__status">
+            Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}
+          </span>
+          {% if articles_page.has_next() %}
+            <a class="pagination__link" rel="next"
+               href="{{ SITEURL }}/{{ articles_next_page.url }}">Older</a>
+          {% endif %}
+        </nav>
+      {% endif %}
     </div>
-  </div>
+  </section>
 {% endblock %}

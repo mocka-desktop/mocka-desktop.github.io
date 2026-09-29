@@ -29,6 +29,9 @@ PAGE_SAVE_AS = "{slug}/index.html"
 # The home page is a page (content/pages/home.md) saved as index.html,
 # so the article listing moves to /news/.
 INDEX_SAVE_AS = "news/index.html"
+# INDEX_URL still defaults to the site root, which would send the "Newer"
+# pagination link to the home page instead of back to /news/.
+INDEX_URL = "news/"
 DIRECT_TEMPLATES = ["index"]
 DEFAULT_PAGINATION = 10
 PAGINATION_PATTERNS = (
