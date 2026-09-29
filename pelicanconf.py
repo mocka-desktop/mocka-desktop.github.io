@@ -92,7 +92,7 @@ COMPONENTS = [
         "slug": "mocka-menu",
         "description": "Application menu with Classic and full-screen Launcher layouts.",
         "status": "Planned",
-        "repo": None,
+        "repo": "https://github.com/mocka-desktop/mocka-menu",
         "release": None,
     },
     {

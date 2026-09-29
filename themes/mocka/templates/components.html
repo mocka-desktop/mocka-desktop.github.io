@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% set active_nav = "components/" %}
+
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+{% block description %}The components that make up the Mocka desktop, and where each one stands.{% endblock %}
+
+{% block content %}
+  <section class="section">
+    <div class="wrap">
+      <h1>{{ page.title }}</h1>
+      <div class="section__lead">{{ page.content }}</div>
+
+      <ul class="component-grid">
+        {% for component in COMPONENTS %}
+          {% include "partials/component_card.html" %}
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{# One component. Expects `component`. Source and release links are
+   dropped when the component has no repository or no release yet. #}
+<li class="component-card">
+  <div class="component-card__head">
+    <h2 class="component-card__name">{{ component.name }}</h2>
+    <span class="badge badge--{{ component.status|lower }}">{{ component.status }}</span>
+  </div>
+
+  <p class="component-card__description">{{ component.description }}</p>
+
+  {% if component.repo or component.release %}
+    <p class="component-card__links">
+      {% if component.repo %}
+        <a href="{{ component.repo }}" rel="noopener">Source</a>
+      {% endif %}
+      {% if component.release %}
+        <a href="{{ component.release }}" rel="noopener">Latest release</a>
+      {% endif %}
+    </p>
+  {% endif %}
+</li>
