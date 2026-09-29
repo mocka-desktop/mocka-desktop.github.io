@@ -11,23 +11,22 @@ system, and those assumptions show up as missing features, workarounds, and
 patches that downstream projects have to maintain. Mocka starts from the
 other side: FreeBSD and GhostBSD are the target platforms, not a port.
 
-## Why reverse engineering instead of forking
+## Why a reimplementation instead of a fork
 
 The obvious path would have been to fork MATE and change it. We chose not to.
 
-**A clean license.** Forked code keeps its original license. Writing every
-component from scratch lets Mocka be released under the BSD-3-Clause
-license, the same family of license as FreeBSD and GhostBSD themselves.
+**A clean license.** Forked code keeps its original license. Every Mocka
+component is new code, released under the BSD-3-Clause license, the same
+family of license as FreeBSD and GhostBSD themselves.
 
 **No inherited assumptions.** A fork carries its history with it, including
 the Linux-specific design decisions. New code can be designed around how
 FreeBSD actually works from the first line.
 
-**Compatibility without dependency.** Mocka components are reverse
-engineered from how the MATE tools behave, not copied from their source.
-That keeps Mocka compatible with MATE, so you can run Mocka and MATE
-components side by side while the transition happens, and move over one
-piece at a time.
+**Compatibility without dependency.** Mocka reimplements MATE's components
+so they work with MATE's public interfaces, such as its panel and settings.
+You can run Mocka and MATE components side by side while the transition
+happens, and move over one piece at a time.
 
 ## One component at a time
 
