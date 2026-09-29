@@ -7,13 +7,18 @@ DEFAULT_LANG = "en"
 
 PATH = "content"
 THEME = "themes/mocka"
-STATIC_PATHS = ["images", "extra/favicon.ico"]
+STATIC_PATHS = ["images", "extra/favicon.ico", "extra/CNAME"]
 ARTICLE_PATHS = ["news"]
 PAGE_PATHS = ["pages"]
 
-# Browsers request /favicon.ico from the site root on their own, whatever
-# the <link rel="icon"> tags say, so serve one there.
-EXTRA_PATH_METADATA = {"extra/favicon.ico": {"path": "favicon.ico"}}
+# Files that belong at the site root rather than under a directory.
+# favicon.ico because browsers request it there whatever the <link> tags
+# say, and CNAME because the workflow publishes output/ and the copy in
+# the repository root never reaches it.
+EXTRA_PATH_METADATA = {
+    "extra/favicon.ico": {"path": "favicon.ico"},
+    "extra/CNAME": {"path": "CNAME"},
+}
 
 # URLs
 ARTICLE_URL = "news/{slug}/"

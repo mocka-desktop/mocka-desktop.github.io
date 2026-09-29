@@ -1,0 +1,29 @@
+# Builds the site with publishconf.py and publishes it to GitHub Pages.
+# Pages source must be set to GitHub Actions in the repository settings.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    # Pinned to the Pelican release that requirements.txt installs. Move
+    # both together.
+    uses: "getpelican/pelican/.github/workflows/github_pages.yml@4.12.0"
+    permissions:
+      contents: "read"
+      pages: "write"
+      id-token: "write"
+    with:
+      settings: "publishconf.py"
+      requirements: "-r requirements.txt"
+      # The reusable workflow builds with --extra-settings, which overrides
+      # whatever publishconf.py sets, so the canonical domain is named here
+      # rather than left to the Pages default.
+      siteurl: "https://mocka-desktop.org"
+      feed_domain: "https://mocka-desktop.org"
+      # The workflow defaults to 3.14. Pinned to the version local builds
+      # are verified against.
+      python: "3.12"

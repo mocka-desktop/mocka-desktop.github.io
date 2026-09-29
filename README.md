@@ -35,12 +35,32 @@ GhostBSD there is no prebuilt wheel for the `watchfiles` dependency, so
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/pages.yml`, which builds with
-`publishconf.py` and deploys to GitHub Pages. The Pages source is set to
-GitHub Actions, and `CNAME` holds the custom domain.
+Pushing to `main` triggers `.github/workflows/pages.yml`, which calls
+Pelican's reusable `github_pages.yml` workflow to build with
+`publishconf.py` and deploy. The Pages source must be set to GitHub Actions
+in the repository settings.
 
-The Pelican version is pinned in `requirements.txt`. When bumping it, move
-the reusable workflow in `pages.yml` to the matching release tag.
+Three details are easy to trip over:
+
+- The reusable workflow builds with `--extra-settings SITEURL=...`, which
+  overrides whatever `publishconf.py` sets. The canonical domain is
+  therefore passed as the `siteurl` and `feed_domain` inputs in
+  `pages.yml`. Changing the domain means changing it there too.
+- Only `output/` is published, so the `CNAME` in the repository root never
+  reaches the deployed site. `content/extra/CNAME` is the copy that does,
+  mapped to the root by `EXTRA_PATH_METADATA`. Keep the two in step.
+- The workflow tag is pinned to the Pelican release in `requirements.txt`,
+  and `python` is pinned to the version local builds are verified against.
+  Move them together.
+
+To reproduce a deployment build locally, exactly as CI runs it:
+
+```sh
+.venv/bin/pelican --settings publishconf.py \
+  --extra-settings SITEURL='"https://mocka-desktop.org"' \
+                   FEED_DOMAIN='"https://mocka-desktop.org"' \
+  --output output
+```
 
 ## Editing the site
 
