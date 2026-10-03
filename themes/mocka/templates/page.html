@@ -2,8 +2,10 @@
 {% extends "base.html" %}
 
 {% block title %}{{ page.title }} | {{ SITENAME }}{% endblock %}
+{# Pages without a Summary get one generated from their body, which runs
+   far past what a meta description should be, so it is trimmed. #}
 {% block description %}
-  {%- if page.summary %}{{ page.summary|striptags|trim }}{% else %}{{ SITESUBTITLE }}{% endif -%}
+  {%- if page.summary %}{{ page.summary|striptags|trim|truncate(160, True, "...") }}{% else %}{{ SITESUBTITLE }}{% endif -%}
 {% endblock %}
 
 {% block content %}

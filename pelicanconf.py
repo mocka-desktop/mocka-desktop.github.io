@@ -76,6 +76,13 @@ IGNORE_FILES = ["**/.*", ".gitkeep"]
 
 # Site data. Templates render these, so nothing below is hardcoded in HTML.
 
+# The card platforms show when a link to the site is shared. Regenerate it
+# from tools/social-card.svg, which carries the command.
+OG_IMAGE = "images/social-card.png"
+OG_IMAGE_WIDTH = 1200
+OG_IMAGE_HEIGHT = 630
+OG_IMAGE_ALT = "Mocka, a desktop built from scratch for GhostBSD"
+
 GITHUB_ORG_URL = "https://github.com/mocka-desktop"
 DISCUSSIONS_URL = "https://github.com/orgs/mocka-desktop/discussions"
 WIKI_URL = "https://github.com/mocka-desktop/mocka-dock/wiki"

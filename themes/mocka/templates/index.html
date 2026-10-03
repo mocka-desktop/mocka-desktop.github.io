@@ -12,6 +12,12 @@
       <h1>News</h1>
       <p class="section__lead">Release announcements and project updates.</p>
 
+      {% if FEED_ALL_ATOM %}
+        <p class="news-feed">
+          <a href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}">Subscribe with Atom</a>
+        </p>
+      {% endif %}
+
       {% set news_items = articles_page.object_list %}
       {% set news_heading = "h2" %}
       {% set news_full = True %}

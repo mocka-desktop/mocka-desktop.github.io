@@ -1,5 +1,6 @@
 Title: Get Involved
 Slug: get-involved
+Summary: How to help with Mocka, whether through code, testing, design or translation.
 
 Mocka is developed in the open on GitHub. Work happens in the repository of
 the component it belongs to, and anything broader is discussed in

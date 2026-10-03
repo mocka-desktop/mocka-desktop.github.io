@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Source for content/images/social-card.png, the Open Graph image.
+     Regenerate with:
+       rsvg-convert -w 1200 -h 630 tools/social-card.svg \
+         -o content/images/social-card.png
+     Colours are the tokens from themes/mocka/static/css/main.css. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630"
+     viewBox="0 0 1200 630">
+  <title>Mocka, a desktop built from scratch for GhostBSD</title>
+
+  <rect width="1200" height="630" fill="#f7f2ec"/>
+
+  <!-- The cup, from themes/mocka/static/img/mocka.svg, scaled to 190px
+       and shifted to account for that artwork's -4 y origin. -->
+  <g transform="translate(96, 205) scale(1.484) translate(0, 4)">
+    <path d="M93 66 C 111 63, 113 90, 88 91" fill="none" stroke="#7D6D61" stroke-width="10.0" stroke-linecap="round"/>
+    <path d="M93 66 C 111 63, 113 90, 88 91" fill="none" stroke="#EDF2F3" stroke-width="5" stroke-linecap="round"/>
+    <path d="M24 58 L96 58 C 96 84, 84 102, 60 102 C 36 102, 24 84, 24 58 Z" fill="#E4ECEE" fill-opacity="0.6"/>
+    <clipPath id="bowl"><path d="M27 60 L93 60 C 93 83, 82 99, 60 99 C 38 99, 27 83, 27 60 Z"/></clipPath>
+    <g clip-path="url(#bowl)">
+      <rect x="20" y="60" width="80" height="10" fill="#EADBC6"/>
+      <rect x="20" y="70" width="80" height="14" fill="#6B3F22"/>
+      <rect x="20" y="84" width="80" height="20" fill="#3A2014"/>
+    </g>
+    <path d="M24 58 L96 58 C 96 84, 84 102, 60 102 C 36 102, 24 84, 24 58 Z" fill="none" stroke="#7D6D61" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M31 64 C 32 78, 40 90, 50 95" fill="none" stroke="#FFFFFF" stroke-opacity="0.75" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M28 57 Q 28 47 40 46 L 80 46 Q 92 47 92 57 Q 60 62 28 57 Z" fill="#FBF6EE" stroke="#D9C7AE" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M36 47 Q 36 39 46 38 L 74 38 Q 84 39 84 47 Z" fill="#FBF6EE" stroke="#D9C7AE" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M46 39 Q 47 31 57 29 Q 60 24 64 18 Q 66 25 70 29 Q 76 32 76 39 Z" fill="#FBF6EE" stroke="#D9C7AE" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M34 52 Q 42 45 50 51 Q 58 45 66 51 Q 74 45 86 51" fill="none" stroke="#5A3219" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M44 43 Q 52 37 60 42 Q 68 37 78 43" fill="none" stroke="#5A3219" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="58" cy="34" r="1.2" fill="#5A3219"/>
+    <circle cx="64" cy="31" r="1.2" fill="#5A3219"/>
+    <circle cx="62" cy="36" r="1" fill="#5A3219"/>
+    <circle cx="54" cy="48" r="1" fill="#5A3219"/>
+    <circle cx="72" cy="49" r="1" fill="#5A3219"/>
+  </g>
+
+  <text x="330" y="318" font-family="Noto Sans" font-size="112"
+        font-weight="700" letter-spacing="-3" fill="#6b3f22">Mocka</text>
+
+  <text x="334" y="392" font-family="Noto Sans" font-size="40"
+        font-weight="400" fill="#5a4f47">A desktop built from scratch</text>
+  <text x="334" y="444" font-family="Noto Sans" font-size="40"
+        font-weight="400" fill="#5a4f47">for GhostBSD</text>
+
+  <rect x="0" y="618" width="1200" height="12" fill="#6b3f22"/>
+</svg>

@@ -1,5 +1,6 @@
 Title: About
 Slug: about
+Summary: Why Mocka exists, why it is a reimplementation rather than a fork of MATE, and how it relates to GhostBSD.
 
 ## Why Mocka exists
 

@@ -1066,6 +1066,38 @@ td {
   margin-bottom: var(--space-2);
 }
 
+.news-feed {
+  margin-bottom: var(--space-6);
+  font-size: var(--text-sm);
+  font-weight: 550;
+}
+
+/* ------------------------------------------------------------- Not found */
+
+.notfound__code {
+  margin-bottom: var(--space-2);
+  color: var(--color-accent);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.notfound__lead {
+  color: var(--color-text-muted);
+  font-size: var(--text-lg);
+}
+
+/* Margin is set per axis on purpose. A `margin` shorthand would zero the
+   inline margins that centre this inside .wrap--reading. */
+.notfound__links {
+  margin-block: var(--space-6) 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-3);
+  font-weight: 550;
+}
+
 /* ----------------------------------------------------------- Components */
 
 .component-grid {
