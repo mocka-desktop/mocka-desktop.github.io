@@ -14,7 +14,8 @@
     </div>
 
     <div class="hero__visual">
-      {{ ui.laptop(HERO.image, HERO.alt, HERO.width, HERO.height, eager=True) }}
+      {{ ui.laptop(HERO.image, HERO.alt, HERO.width, HERO.height,
+                   eager=True, fallback=HERO.fallback) }}
     </div>
   </div>
 </section>

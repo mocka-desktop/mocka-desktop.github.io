@@ -132,6 +132,9 @@ HERO = {
         "and compatible with MATE along the way."
     ),
     "image": "images/screenshots/hero-desktop.webp",
+    # Photographic, so the fallback is a JPEG. The same picture as a PNG is
+    # over a megabyte against 121 KB, for no visible difference.
+    "fallback": "images/screenshots/hero-desktop.jpg",
     "alt": "A GhostBSD desktop with Mocka Dock on the panel",
     "width": 1600,
     "height": 900,

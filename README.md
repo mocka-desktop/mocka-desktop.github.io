@@ -110,22 +110,43 @@ beside it, the way screenshots are handled.
 
 ## Placeholder images
 
-These are generated stand-ins, not real screenshots. Replace them with the
-real thing at the same path and the same pixel size, in both formats, and
-no template or config changes are needed.
+One generated stand-in is still in place. Replace it at the same path and
+pixel size and no template change is needed.
 
-| File | Size | Used in |
-|------|------|---------|
-| `content/images/screenshots/hero-desktop.{webp,png}` | 1600x900 | Hero, in the laptop frame |
-| `content/images/screenshots/dock-overview.{webp,png}` | 1200x400 | Mocka Dock feature story, in the window frame |
+| File | Size | Used in | State |
+|------|------|---------|-------|
+| `content/images/screenshots/hero-desktop.{webp,jpg}` | 1600x900 | Hero, in the laptop frame | Real |
+| `content/images/screenshots/dock-overview.{webp,png}` | 1200x400 | Mocka Dock feature story, in the window frame | Placeholder |
 
 Still to come, listed in `PLAN.md` phase 7: `dock-app-menu` (optional
 second feature story) and `social-card` (1200x630, for the Open Graph and
 Twitter tags added in phase 8).
 
-Templates size images from the `width` and `height` in `pelicanconf.py`
-(`HERO` and `FEATURES`), so update those if a replacement has different
-dimensions. Keeping the aspect ratio avoids layout shift.
+Every screenshot ships as WebP with one fallback beside it. Choose the
+fallback by content, not by habit:
+
+- **Photographic** (a desktop with a wallpaper): JPEG. The hero as a PNG is
+  1327 KB against 121 KB as a JPEG, with no visible difference.
+- **Flat interface** (a dock, a menu, a dialog): PNG, which stays sharp on
+  hard edges and compresses such images well.
+
+The macro assumes a PNG of the same name. For a JPEG, give the path
+explicitly with a `fallback` key next to `image` in `HERO` or the
+`FEATURES` entry.
+
+Templates size images from the `width` and `height` in `pelicanconf.py`,
+so update those if a replacement has different dimensions. Keeping the
+aspect ratio avoids layout shift.
+
+To regenerate the hero from a fresh 16:9 desktop capture:
+
+```sh
+magick shot.png -resize 1600x900 -strip -quality 82 \
+  content/images/screenshots/hero-desktop.webp
+magick shot.png -resize 1600x900 -strip -quality 82 \
+  -sampling-factor 4:2:0 -interlace Plane \
+  content/images/screenshots/hero-desktop.jpg
+```
 
 ## License
 

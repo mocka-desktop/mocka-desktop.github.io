@@ -14,7 +14,8 @@
             <p>{{ feature.text }}</p>
           </div>
           <div class="feature__visual">
-            {{ ui.window(feature.image, feature.alt, feature.width, feature.height) }}
+            {{ ui.window(feature.image, feature.alt, feature.width, feature.height,
+                         fallback=feature.fallback) }}
           </div>
         </article>
       {% endfor %}
