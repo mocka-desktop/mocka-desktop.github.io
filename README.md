@@ -110,17 +110,21 @@ beside it, the way screenshots are handled.
 
 ## Placeholder images
 
-One generated stand-in is still in place. Replace it at the same path and
-pixel size and no template change is needed.
+No placeholders remain. Both screenshots are real, cut from one 2560x1440
+capture of a GhostBSD desktop.
 
-| File | Size | Used in | State |
-|------|------|---------|-------|
-| `content/images/screenshots/hero-desktop.{webp,jpg}` | 1600x900 | Hero, in the laptop frame | Real |
-| `content/images/screenshots/dock-overview.{webp,png}` | 1200x400 | Mocka Dock feature story, in the window frame | Placeholder |
+| File | Size | Used in |
+|------|------|---------|
+| `content/images/screenshots/hero-desktop.{webp,jpg}` | 1600x900 | Hero, in the laptop frame |
+| `content/images/screenshots/dock-overview.{webp,png}` | 548x40 | Mocka Dock feature story, as a panel strip |
 
 Still to come, listed in `PLAN.md` phase 7: `dock-app-menu` (optional
 second feature story) and `social-card` (1200x630, for the Open Graph and
 Twitter tags added in phase 8).
+
+The dock strip is shown at its own pixel size and never stretched, so it
+stays sharp. Replacing it with a wider capture means updating `width` and
+`height` in the `FEATURES` entry to match.
 
 Every screenshot ships as WebP with one fallback beside it. Choose the
 fallback by content, not by habit:
@@ -133,6 +137,11 @@ fallback by content, not by habit:
 The macro assumes a PNG of the same name. For a JPEG, give the path
 explicitly with a `fallback` key next to `image` in `HERO` or the
 `FEATURES` entry.
+
+A `FEATURES` entry also chooses its frame. `"frame": "panel"` draws a bare
+strip on a tinted bed and stacks the story, which is right for a panel
+applet such as the dock. Anything else gets the window frame, with a title
+bar, which suits components that really are windows.
 
 Templates size images from the `width` and `height` in `pelicanconf.py`,
 so update those if a replacement has different dimensions. Keeping the

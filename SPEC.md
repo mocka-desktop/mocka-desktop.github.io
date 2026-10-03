@@ -91,8 +91,8 @@ Sections, in order:
 
 5. **Why Mocka**
    Three blocks:
-   - Written from scratch: every component is new code, reverse engineered
-     from how the MATE tools behave.
+   - Written from scratch: every component is new code, written from its
+     own specification and sharing no code with MATE.
    - BSD first: built for FreeBSD and GhostBSD, no Linux-specific assumptions.
    - Compatible with MATE: mix Mocka and MATE components during the
      transition.

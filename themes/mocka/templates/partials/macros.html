@@ -26,6 +26,16 @@
   </div>
 {% endmacro %}
 
+{# A panel strip, such as the dock. No window chrome, because a panel
+   applet is not a window. Shown at its own size rather than stretched. #}
+{% macro panel(image, alt, width, height, fallback=None) %}
+  <div class="device-panel">
+    <div class="device-panel__strip" style="max-width: {{ width }}px">
+      {{ screenshot(image, alt, width, height, False, fallback) }}
+    </div>
+  </div>
+{% endmacro %}
+
 {# A screenshot inside a CSS drawn application window. #}
 {% macro window(image, alt, width, height, fallback=None) %}
   <div class="device-window">

@@ -1,11 +1,14 @@
 {# Feature stories, one per shipping component. Renders nothing when
-   FEATURES is empty. Image and text alternate sides on wide screens. #}
+   FEATURES is empty. Image and text alternate sides on wide screens.
+   An entry with frame "panel" stacks instead, because a panel strip is
+   too wide and short to sit in a column beside text. #}
 {% import "partials/macros.html" as ui with context %}
 {% if FEATURES is defined and FEATURES %}
   <section class="section">
     <div class="wrap">
       {% for feature in FEATURES %}
-        <article class="feature{% if loop.index is even %} feature--reverse{% endif %}">
+        {% set is_panel = feature.frame == "panel" %}
+        <article class="feature{% if is_panel %} feature--stacked{% elif loop.index is even %} feature--reverse{% endif %}">
           <div class="feature__text">
             {% if feature.component %}
               <p class="feature__eyebrow">{{ feature.component }}</p>
@@ -14,8 +17,13 @@
             <p>{{ feature.text }}</p>
           </div>
           <div class="feature__visual">
-            {{ ui.window(feature.image, feature.alt, feature.width, feature.height,
-                         fallback=feature.fallback) }}
+            {% if is_panel %}
+              {{ ui.panel(feature.image, feature.alt, feature.width, feature.height,
+                          fallback=feature.fallback) }}
+            {% else %}
+              {{ ui.window(feature.image, feature.alt, feature.width, feature.height,
+                           fallback=feature.fallback) }}
+            {% endif %}
           </div>
         </article>
       {% endfor %}

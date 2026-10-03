@@ -584,6 +584,30 @@ td {
   background: linear-gradient(var(--color-border-strong), var(--color-border));
 }
 
+/* A panel strip such as the dock. It sits on a tinted bed so the dark
+   strip does not float on the page, and keeps its own size rather than
+   being stretched to fill the column. */
+.device-panel {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-5) var(--space-4);
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.device-panel__strip {
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.device-panel__strip img {
+  display: block;
+  width: 100%;
+}
+
 .device-window {
   overflow: hidden;
   border: var(--border-hairline);
@@ -730,6 +754,17 @@ td {
   /* Even numbered stories put the screenshot on the left. */
   .feature--reverse .feature__visual {
     order: -1;
+  }
+
+  /* A panel strip is far wider than it is tall, so it reads better below
+     the text than beside it. */
+  .feature--stacked {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .feature--stacked .feature__text {
+    max-width: var(--width-reading);
   }
 }
 

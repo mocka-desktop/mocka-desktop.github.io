@@ -153,8 +153,11 @@ FEATURES = [
         ),
         "image": "images/screenshots/dock-overview.webp",
         "alt": "Mocka Dock on a GhostBSD panel with pinned and running apps",
-        "width": 1200,
-        "height": 400,
+        "width": 548,
+        "height": 40,
+        # A panel applet is not a window, so it gets no window chrome and
+        # the story stacks rather than sitting in a column beside the text.
+        "frame": "panel",
     },
 ]
 
@@ -178,7 +181,8 @@ GET_INVOLVED = [
 
 WHY_MOCKA = [
     ("Written from scratch",
-     "Every component is new code, reverse engineered from how the MATE tools behave."),
+     "Every component is new code, written from its own specification and "
+     "sharing no code with MATE."),
     ("BSD first",
      "Built for FreeBSD and GhostBSD, with no Linux-specific assumptions."),
     ("Compatible with MATE",
