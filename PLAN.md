@@ -35,7 +35,7 @@ These defaults apply unless the maintainer says otherwise:
 - [x] Settings > Pages > Source: GitHub Actions.
 - [x] Add `SPEC.md` and this `PLAN.md` to the repository root.
 - [x] Custom domain `mocka-desktop.org` configured and HTTPS enforced.
-- [ ] Provide screenshots when available (list in Phase 7).
+- [x] Provide screenshots when available (list in Phase 7).
 
 ## Phase 1: Project scaffold
 
@@ -492,17 +492,17 @@ Acceptance: a push to `main` builds and deploys, and the site loads at
 
 Run before calling v1 done:
 
-- [ ] `pelican content -s publishconf.py` builds with no warnings.
-- [ ] Every internal link resolves (use a link checker on `output/`).
-- [ ] HTML validates (e.g. `html5validator` or the Nu validator).
-- [ ] Contrast meets WCAG AA in light and dark mode.
-- [ ] Keyboard navigation works on every page, focus is always visible.
-- [ ] Page works with JavaScript disabled (there should be none).
-- [ ] No requests to external hosts when loading any page.
-- [ ] Layout checked at 360, 768, 1024 and 1440 px.
-- [ ] No em dashes in content or templates: `grep -rn "—" content themes`
+- [x] `pelican content -s publishconf.py` builds with no warnings.
+- [x] Every internal link resolves (use a link checker on `output/`).
+- [x] HTML validates (e.g. `html5validator` or the Nu validator).
+- [x] Contrast meets WCAG AA in light and dark mode.
+- [x] Keyboard navigation works on every page, focus is always visible.
+- [x] Page works with JavaScript disabled (there should be none).
+- [x] No requests to external hosts when loading any page.
+- [x] Layout checked at 360, 768, 1024 and 1440 px.
+- [x] No em dashes in content or templates: `grep -rn "—" content themes`
       returns nothing.
-- [ ] Every image has alt text.
+- [x] Every image has alt text.
 
 ## Out of scope for v1
 
