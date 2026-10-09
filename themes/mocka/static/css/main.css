@@ -33,6 +33,8 @@
   --badge-stable-bg: #dcecdf;
   --badge-planned-fg: #554a42;
   --badge-planned-bg: #ece5dd;
+  --badge-in-development-fg: #4a3a6b;
+  --badge-in-development-bg: #e7e1f1;
 
   --shadow-card: 0 1px 2px rgb(28 22 19 / 6%), 0 8px 24px rgb(28 22 19 / 5%);
 
@@ -121,6 +123,8 @@
     --badge-stable-bg: #14321e;
     --badge-planned-fg: #c3b6aa;
     --badge-planned-bg: #2a231e;
+    --badge-in-development-fg: #c6b8e6;
+    --badge-in-development-bg: #2a2238;
 
     --shadow-card: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
   }
@@ -550,6 +554,11 @@ td {
   color: var(--badge-planned-fg);
 }
 
+.badge--in-development {
+  background: var(--badge-in-development-bg);
+  color: var(--badge-in-development-fg);
+}
+
 /* ----------------------------------------------------------------- Cards */
 
 .card {
@@ -872,8 +881,11 @@ td {
 
 .get-mocka__text p {
   max-width: 38rem;
-  margin-bottom: 0;
   color: var(--color-text-muted);
+}
+
+.get-mocka__text p:last-child {
+  margin-bottom: 0;
 }
 
 .get-mocka__actions {

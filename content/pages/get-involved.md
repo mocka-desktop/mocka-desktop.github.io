@@ -16,7 +16,8 @@ spend time on it.
 ## Testing
 
 Testing is the most useful thing you can do right now. Install the alpha on
-GhostBSD and use it the way you normally work.
+GhostBSD by following the [Mocka Dock guide][dock-guide], then use it the
+way you normally work.
 
 Report what breaks as an issue in that component's repository. Include the
 steps you took, what you expected, and what happened instead. A small,
@@ -36,3 +37,4 @@ then, so no work is wasted.
 
 [discussions]: https://github.com/orgs/mocka-desktop/discussions
 [org]: https://github.com/mocka-desktop
+[dock-guide]: https://github.com/mocka-desktop/mocka-dock/wiki#adding-the-dock-to-a-panel

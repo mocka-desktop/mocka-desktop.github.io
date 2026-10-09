@@ -86,6 +86,7 @@ OG_IMAGE_ALT = "Mocka, a desktop built from scratch for GhostBSD"
 GITHUB_ORG_URL = "https://github.com/mocka-desktop"
 DISCUSSIONS_URL = "https://github.com/orgs/mocka-desktop/discussions"
 WIKI_URL = "https://github.com/mocka-desktop/mocka-dock/wiki"
+DOCK_GUIDE_URL = WIKI_URL + "#adding-the-dock-to-a-panel"
 GHOSTBSD_URL = "https://www.ghostbsd.org"
 GHOSTBSD_DOWNLOAD_URL = "https://www.ghostbsd.org/download"
 
@@ -101,7 +102,7 @@ NAV_LINKS = [
 HIGHLIGHT = {
     "label": "New",
     "title": "Mocka Dock 0.0.1 alpha is out",
-    "text": "Available in the next GhostBSD package update.",
+    "text": "Now in GhostBSD packages.",
     "url": "news/mocka-dock-0-0-1/",
 }
 
@@ -117,9 +118,13 @@ COMPONENTS = [
     {
         "name": "Mocka Menu",
         "slug": "mocka-menu",
-        "description": "Application menu with Classic and full-screen Launcher layouts.",
-        "status": "Planned",
+        "description": (
+            "Application menu with Classic and full-screen Launcher layouts. "
+            "First alpha planned for GhostBSD testers."
+        ),
+        "status": "In development",
         "repo": "https://github.com/mocka-desktop/mocka-menu",
+        "spec": "https://github.com/mocka-desktop/mocka-menu/blob/main/SPEC.md",
         "release": None,
     },
     {
@@ -169,14 +174,16 @@ FEATURES = [
 ]
 
 # (title, text, anchor). The anchors match the sections of get-involved.md.
+# The text is rendered as HTML.
 GET_INVOLVED = [
     ("Code",
      "Every component is a repository in the GitHub org. Open a pull "
      "request, or raise larger changes in Discussions first.",
      "code"),
     ("Testing",
-     "Run the alpha on GhostBSD and report what breaks, with the steps "
-     "that led there.",
+     f'Install the alpha on GhostBSD with the <a href="{DOCK_GUIDE_URL}" '
+     'rel="noopener">Mocka Dock guide</a> and report what breaks, with the '
+     "steps that led there.",
      "testing"),
     ("Design",
      "Share mockups, icons and interface ideas in Discussions.",

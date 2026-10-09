@@ -12,7 +12,7 @@
             <h3 class="involve__title">
               <a href="{{ SITEURL }}/get-involved/#{{ anchor }}">{{ title }}</a>
             </h3>
-            <p class="involve__text">{{ text }}</p>
+            <p class="involve__text">{{ text|safe }}</p>
           </li>
         {% endfor %}
       </ul>
