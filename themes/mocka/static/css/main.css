@@ -1074,6 +1074,15 @@ td {
   font-size: var(--text-lg);
 }
 
+.article__figure {
+  margin: var(--space-5) 0;
+}
+
+.article__figure img {
+  display: block;
+  border-radius: var(--radius-md);
+}
+
 .article__body li {
   margin-bottom: var(--space-2);
 }

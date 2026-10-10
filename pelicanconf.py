@@ -101,9 +101,9 @@ NAV_LINKS = [
 
 HIGHLIGHT = {
     "label": "New",
-    "title": "Mocka Dock 0.0.1 alpha is out",
-    "text": "Now in GhostBSD packages.",
-    "url": "news/mocka-dock-0-0-1/",
+    "title": "Mocka Dock 0.0.2 alpha brings window thumbnails",
+    "text": None,
+    "url": "news/mocka-dock-0-0-2/",
 }
 
 COMPONENTS = [
@@ -113,7 +113,7 @@ COMPONENTS = [
         "description": "Taskbar-style dock applet for the MATE panel.",
         "status": "Alpha",
         "repo": "https://github.com/mocka-desktop/mocka-dock",
-        "release": "https://github.com/mocka-desktop/mocka-dock/releases/tag/0.0.1",
+        "release": "https://github.com/mocka-desktop/mocka-dock/releases/tag/0.0.2",
     },
     {
         "name": "Mocka Menu",
@@ -161,7 +161,8 @@ FEATURES = [
         "text": (
             "Pinned and running apps share one row of buttons. Pin by "
             "dragging from the menu, the desktop or the file manager, and "
-            "right click any app for its actions, recent files and windows."
+            "right click any app for its actions, recent files and windows. "
+            "Hover an app to see thumbnails of its windows."
         ),
         "image": "images/screenshots/dock-overview.webp",
         "alt": "Mocka Dock on a GhostBSD panel with pinned and running apps",
